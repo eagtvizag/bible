@@ -249,363 +249,96 @@
             color: #666;
         }
 
-        /* --- Contact Section --- */
-        <form onsubmit="sendToWhatsApp(event)">
-    <div class="form-group">
-        <input type="text" id="custName" placeholder="Your Name" required>
-    </div>
-    <div class="form-group">
-        <input type="tel" id="custPhone" placeholder="Your Phone Number" required>
-    </div>
-    <div class="form-group">
-        <input type="text" id="custBook" placeholder="Book you are looking for (Optional)">
-    </div>
-    <div class="form-group">
-        <textarea id="custMessage" rows="4" placeholder="Your Message" required></textarea>
-    </div>
-    <button type="submit" class="submit-btn">Send via WhatsApp <i class="fa-brands fa-whatsapp"></i></button>
-</form>
+        /* --- Contact Section & Form CSS --- */
+        .contact-container {
+            display: flex;
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
 
-<script>
-    function sendToWhatsApp(event) {
-        event.preventDefault(); // ఫేక్ సబ్మిట్ ఆపడానికి
-        
-        // కస్టమర్ ఎంటర్ చేసిన డేటా తీసుకోవడం
-        let name = document.getElementById('custName').value;
-        let phone = document.getElementById('custPhone').value;
-        let book = document.getElementById('custBook').value;
-        let message = document.getElementById('custMessage').value;
-        
-        // వాట్సాప్ కి పంపాల్సిన మెసేజ్ ఫార్మాట్
-        let whatsappMessage = `*New Inquiry from Website*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Book Needed:* ${book}%0A*Message:* ${message}`;
-        
-        // మీ వాట్సాప్ నెంబర్ కు లింక్ (9177699877)
-        let whatsappURL = `https://wa.me/919177699877?text=${whatsappMessage}`;
-        
-        // కొత్త ట్యాబ్ లో వాట్సాప్ ఓపెన్ అవ్వడం
-        window.open(whatsappURL, '_blank');
-    }
-</script>
+        .contact-info, .contact-form {
+            flex: 1;
+            padding: 50px;
+        }
 
-        /* --- Footer --- */
-        footer {
-            background: #112240;
+        .contact-info {
+            background: var(--primary-color);
             color: var(--white);
-            text-align: center;
-            padding: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            gap: 15px;
+        }
+
+        .info-item i {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 5px;
+        }
+
+        /* WhatsApp Form Styles */
+        .contact-form {
+            background: #ffffff;
+        }
+        
+        .contact-form h3 {
+            font-size: 28px;
+            color: #1a365d;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-form p.sub-text {
+            color: #666;
             font-size: 14px;
+            margin-bottom: 25px;
         }
 
-        /* --- Animations --- */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .form-group {
+            margin-bottom: 20px;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            background-color: #f8fafc;
+            transition: all 0.3s ease;
+            outline: none;
         }
 
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            nav ul {
-                position: absolute;
-                top: 70px;
-                left: -100%;
-                flex-direction: column;
-                background: var(--white);
-                width: 100%;
-                text-align: center;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-                transition: var(--transition);
-            }
-            nav ul.active {
-                left: 0;
-            }
-            .hero h1 {
-                font-size: 35px;
-            }
-            .about-content {
-                flex-direction: column;
-            }
-            .contact-container {
-                flex-direction: column;
-            }
-            .contact-info, .contact-form {
-                padding: 30px;
-            }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #d69e2e;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(214, 158, 46, 0.2);
         }
-    </style>
-</head>
-<body>
 
-    <!-- Header & Navigation -->
-    <header>
-        <a href="#" class="logo"><i class="fa-solid fa-book-bible"></i> Christian Book Room</a>
-        <div class="menu-toggle" id="mobile-menu">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-        <nav>
-            <ul id="nav-list">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#products">Collections</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h1>Welcome to Christian Book Room</h1>
-        <p>Your ultimate destination for spiritual growth. Find the best Bibles, Dictionaries, and Literature in Telugu and English at PM Palem, Visakhapatnam.</p>
-        <a href="#products" class="btn">Explore Our Collections</a>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About Us</h2>
-        <div class="about-content">
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1512805147242-c3e794fc1bfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Reading Bible">
-            </div>
-            <div class="about-text">
-                <h3>Growing Faith Through Good Literature</h3>
-                <br>
-                <p>Located in the heart of PM Palem, Visakhapatnam, <strong>Christian Book Room</strong> is dedicated to providing high-quality spiritual materials to believers and truth-seekers.</p>
-                <p>We specialize in a wide range of Christian literature including Holy Bibles, Bible Dictionaries, theological books, and Sunday school materials available in both <strong>Telugu and English</strong> languages.</p>
-                <p>Our mission is to equip the local community with the Word of God and enriching books that build strong faith and deep biblical understanding.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" style="background-color: #f1f5f9;">
-        <h2 class="section-title">Our Collections</h2>
-        <div class="products-grid">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Holy Bibles">
-                <div class="product-info">
-                    <h3>Holy Bibles</h3>
-                    <p>Available in Telugu, English, and Bilingual editions. Study Bibles, Reference Bibles, and Pocket Bibles.</p>
-                </div>
-            </div>
-            <!-- Product 2 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bible Dictionaries">
-                <div class="product-info">
-                    <h3>Dictionaries & Commentaries</h3>
-                    <p>Deepen your study with comprehensive Bible Dictionaries, Concordances, and expert Commentaries.</p>
-                </div>
-            </div>
-            <!-- Product 3 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Christian Books">
-                <div class="product-info">
-                    <h3>Christian Books</h3>
-                    <p>Biographies, daily devotionals, family life guides, and spiritual growth books in Telugu & English.</p>
-                </div>
-            </div>
-            <!-- Product 4 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1606354807491-62d294bc172c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bible Materials">
-                <div class="product-info">
-                    <h3>Bible Materials & Gifts</h3>
-                    <p>Sunday school materials, promise cards, keychains, wall frames, and spiritual gifts.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Visit Us / Contact Us</h2>
-        <div class="contact-container">
-            <!-- Address & Info -->
-            <div class="contact-info">
-                <h3>Store Information</h3>
-                <p style="margin-bottom: 30px;">Feel free to visit our store or contact us for book availability.</p>
-                
-                <div class="info-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div>
-                        <h4>Address:</h4>
-                        <p>Opposite Bethany Church,<br>PM Palem,<br>Visakhapatnam - 530041.</p>
-                    </div>
-                </div>
-                
-                <div class="info-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <div>
-                        <h4>Phone:</h4>
-                        <p>+91 9177699877</p>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <i class="fa-solid fa-clock"></i>
-                    <div>
-                        <h4>Timings:</h4>
-                        <p>Mon - Sat: 9:30 AM to 8:30 PM<br>Sunday: Closed</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Form -->
-            <!-- === ఇక్కడి నుండి కాపీ చేయండి === -->
-<style>
-    /* Premium Contact Form & WhatsApp Button CSS */
-    .contact-form {
-        background: #ffffff;
-        padding: 40px;
-        border-radius: 15px;
-    }
-    
-    .contact-form h3 {
-        font-size: 28px;
-        color: #1a365d;
-        margin-bottom: 5px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .contact-form p.sub-text {
-        color: #666;
-        font-size: 14px;
-        margin-bottom: 25px;
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    .form-group input, .form-group textarea {
-        width: 100%;
-        padding: 15px;
-        border: 1px solid #e2e8f0;
-        border-radius: 8px;
-        font-family: 'Poppins', sans-serif;
-        font-size: 15px;
-        background-color: #f8fafc;
-        transition: all 0.3s ease;
-        outline: none;
-    }
-
-    /* బాక్స్ మీద క్లిక్ చేసినప్పుడు గోల్డ్ కలర్ ఎఫెక్ట్ */
-    .form-group input:focus, .form-group textarea:focus {
-        border-color: #d69e2e; /* Gold Color */
-        background-color: #ffffff;
-        box-shadow: 0 0 10px rgba(214, 158, 46, 0.2);
-    }
-
-    /* అందమైన వాట్సాప్ బటన్ డిజైన్ */
-    .whatsapp-btn {
-        background: linear-gradient(to right, #25D366, #128C7E);
-        color: #ffffff;
-        border: none;
-        padding: 16px 30px;
-        border-radius: 30px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: 600;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        transition: all 0.3s ease;
-        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-    }
-
-    /* బటన్ మీద మౌస్ పెట్టినప్పుడు ఎఫెక్ట్ */
-    .whatsapp-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
-        background: linear-gradient(to right, #128C7E, #075E54);
-    }
-
-    .whatsapp-btn i {
-        font-size: 22px;
-    }
-</style>
-
-<div class="contact-form">
-    <h3>Send an Inquiry <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i></h3>
-    <p class="sub-text">Fill the details below to send us a direct WhatsApp message.</p>
-    
-    <form onsubmit="sendToWhatsApp(event)">
-        <div class="form-group">
-            <input type="text" id="custName" placeholder="Your Name" required>
-        </div>
-        <div class="form-group">
-            <input type="tel" id="custPhone" placeholder="Your Phone Number" required>
-        </div>
-        <div class="form-group">
-            <input type="text" id="custBook" placeholder="Book you are looking for (Optional)">
-        </div>
-        <div class="form-group">
-            <textarea id="custMessage" rows="4" placeholder="Your Message / Address" required></textarea>
-        </div>
-        <button type="submit" class="whatsapp-btn">
-            <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
-        </button>
-    </form>
-</div>
-
-<script>
-    function sendToWhatsApp(event) {
-        event.preventDefault(); 
-        
-        // కస్టమర్ డేటా తీసుకోవడం
-        let name = document.getElementById('custName').value;
-        let phone = document.getElementById('custPhone').value;
-        let book = document.getElementById('custBook').value;
-        let message = document.getElementById('custMessage').value;
-        
-        // మెసేజ్ ఫార్మాట్ (వాట్సాప్ లో బోల్డ్ గా కనిపించడానికి * వాడాను)
-        let whatsappMessage = `*New Inquiry from Christian Book Room Website*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Book Needed:* ${book}%0A*Message:* ${message}`;
-        
-        // మీ ఫోన్ నెంబర్ కు లింక్ (9177699877)
-        let whatsappURL = `https://wa.me/919177699877?text=${whatsappMessage}`;
-        
-        // కొత్త ట్యాబ్ లో వాట్సాప్ ఓపెన్ అవ్వడం
-        window.open(whatsappURL, '_blank');
-    }
-</script>
-<!-- === ఇక్కడి వరకు కాపీ చేయండి === -->>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Christian Book Room, PM Palem. All Rights Reserved. | Designed with ❤️</p>
-    </footer>
-
-    <!-- JavaScript for Mobile Menu & Scroll Effect -->
-    <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('mobile-menu');
-        const navList = document.getElementById('nav-list');
-
-        menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked
-        const navLinks = document.querySelectorAll('nav ul li a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navList.classList.remove('active');
-            });
-        });
-    </script>
-</body>
-</html>
+        .whatsapp-btn {
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: #ffffff;
+            border: none;
+            padding: 16px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
