@@ -461,26 +461,128 @@
             </div>
 
             <!-- Contact Form -->
-            <div class="contact-form">
-                <h3>Send an Inquiry</h3>
-                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Message sent successfully! We will contact you soon.');">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Your Phone Number" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Book you are looking for (Optional)">
-                    </div>
-                    <div class="form-group">
-                        <textarea rows="4" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
+            <!-- === ఇక్కడి నుండి కాపీ చేయండి === -->
+<style>
+    /* Premium Contact Form & WhatsApp Button CSS */
+    .contact-form {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 15px;
+    }
+    
+    .contact-form h3 {
+        font-size: 28px;
+        color: #1a365d;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .contact-form p.sub-text {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 15px;
+        background-color: #f8fafc;
+        transition: all 0.3s ease;
+        outline: none;
+    }
+
+    /* బాక్స్ మీద క్లిక్ చేసినప్పుడు గోల్డ్ కలర్ ఎఫెక్ట్ */
+    .form-group input:focus, .form-group textarea:focus {
+        border-color: #d69e2e; /* Gold Color */
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(214, 158, 46, 0.2);
+    }
+
+    /* అందమైన వాట్సాప్ బటన్ డిజైన్ */
+    .whatsapp-btn {
+        background: linear-gradient(to right, #25D366, #128C7E);
+        color: #ffffff;
+        border: none;
+        padding: 16px 30px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    }
+
+    /* బటన్ మీద మౌస్ పెట్టినప్పుడు ఎఫెక్ట్ */
+    .whatsapp-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        background: linear-gradient(to right, #128C7E, #075E54);
+    }
+
+    .whatsapp-btn i {
+        font-size: 22px;
+    }
+</style>
+
+<div class="contact-form">
+    <h3>Send an Inquiry <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i></h3>
+    <p class="sub-text">Fill the details below to send us a direct WhatsApp message.</p>
+    
+    <form onsubmit="sendToWhatsApp(event)">
+        <div class="form-group">
+            <input type="text" id="custName" placeholder="Your Name" required>
         </div>
-    </section>
+        <div class="form-group">
+            <input type="tel" id="custPhone" placeholder="Your Phone Number" required>
+        </div>
+        <div class="form-group">
+            <input type="text" id="custBook" placeholder="Book you are looking for (Optional)">
+        </div>
+        <div class="form-group">
+            <textarea id="custMessage" rows="4" placeholder="Your Message / Address" required></textarea>
+        </div>
+        <button type="submit" class="whatsapp-btn">
+            <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
+        </button>
+    </form>
+</div>
+
+<script>
+    function sendToWhatsApp(event) {
+        event.preventDefault(); 
+        
+        // కస్టమర్ డేటా తీసుకోవడం
+        let name = document.getElementById('custName').value;
+        let phone = document.getElementById('custPhone').value;
+        let book = document.getElementById('custBook').value;
+        let message = document.getElementById('custMessage').value;
+        
+        // మెసేజ్ ఫార్మాట్ (వాట్సాప్ లో బోల్డ్ గా కనిపించడానికి * వాడాను)
+        let whatsappMessage = `*New Inquiry from Christian Book Room Website*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Book Needed:* ${book}%0A*Message:* ${message}`;
+        
+        // మీ ఫోన్ నెంబర్ కు లింక్ (9177699877)
+        let whatsappURL = `https://wa.me/919177699877?text=${whatsappMessage}`;
+        
+        // కొత్త ట్యాబ్ లో వాట్సాప్ ఓపెన్ అవ్వడం
+        window.open(whatsappURL, '_blank');
+    }
+</script>
+<!-- === ఇక్కడి వరకు కాపీ చేయండి === -->>
 
     <!-- Footer -->
     <footer>
