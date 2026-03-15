@@ -250,82 +250,42 @@
         }
 
         /* --- Contact Section --- */
-        .contact-container {
-            display: flex;
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+        <form onsubmit="sendToWhatsApp(event)">
+    <div class="form-group">
+        <input type="text" id="custName" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+        <input type="tel" id="custPhone" placeholder="Your Phone Number" required>
+    </div>
+    <div class="form-group">
+        <input type="text" id="custBook" placeholder="Book you are looking for (Optional)">
+    </div>
+    <div class="form-group">
+        <textarea id="custMessage" rows="4" placeholder="Your Message" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Send via WhatsApp <i class="fa-brands fa-whatsapp"></i></button>
+</form>
 
-        .contact-info, .contact-form {
-            flex: 1;
-            padding: 50px;
-        }
-
-        .contact-info {
-            background: var(--primary-color);
-            color: var(--white);
-        }
-
-        .contact-info h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
-        }
-
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-            gap: 15px;
-        }
-
-        .info-item i {
-            font-size: 24px;
-            color: var(--secondary-color);
-            margin-top: 5px;
-        }
-
-        .contact-form h3 {
-            font-size: 28px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-            outline: none;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--secondary-color);
-        }
-
-        .submit-btn {
-            background: var(--primary-color);
-            color: var(--white);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .submit-btn:hover {
-            background: var(--secondary-color);
-        }
+<script>
+    function sendToWhatsApp(event) {
+        event.preventDefault(); // ఫేక్ సబ్మిట్ ఆపడానికి
+        
+        // కస్టమర్ ఎంటర్ చేసిన డేటా తీసుకోవడం
+        let name = document.getElementById('custName').value;
+        let phone = document.getElementById('custPhone').value;
+        let book = document.getElementById('custBook').value;
+        let message = document.getElementById('custMessage').value;
+        
+        // వాట్సాప్ కి పంపాల్సిన మెసేజ్ ఫార్మాట్
+        let whatsappMessage = `*New Inquiry from Website*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Book Needed:* ${book}%0A*Message:* ${message}`;
+        
+        // మీ వాట్సాప్ నెంబర్ కు లింక్ (9177699877)
+        let whatsappURL = `https://wa.me/919177699877?text=${whatsappMessage}`;
+        
+        // కొత్త ట్యాబ్ లో వాట్సాప్ ఓపెన్ అవ్వడం
+        window.open(whatsappURL, '_blank');
+    }
+</script>
 
         /* --- Footer --- */
         footer {
